@@ -19,7 +19,7 @@
         },
         {
             "command": "concurrently  \"npm run server\" \"npm run client\" ",
-            "name": "dev",
+            "name": "devdev",
             "request": "launch",
             "type": "node-terminal"
         },
@@ -41,6 +41,11 @@
             "name": "client",
             "request": "launch",
             "type": "node-terminal"
-        }
+        },{
+            "command": "npm run dev",
+            "name": "dev",
+            "request": "launch",
+            "type": "node-terminal"
+        },
     ]
 }
