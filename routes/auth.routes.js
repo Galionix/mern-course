@@ -1,7 +1,8 @@
 const { Router } = require("express");
 const bcrypt = require("bcryptjs");
-
+const jwt = require('jsonwebtoken')
 const User = require("../models/User");
+const config = require('config')
 const { check, validationResult } = require("express-validator");
 const router = Router();
 
@@ -84,7 +85,14 @@ async (req, res) => {
 
         if(!isMatch) return res.status(400).json({message: 'Неверный парольб попробуйте снова!'})
 
-        
+const token = jwt.sign(
+    {userId: user.id},
+    {config.get('jwtSecret')},
+    {expiresIn: '1h'}
+)
+//по умолчанию статус ответа 200, поэтому тут можно не указывать
+res.json({ token, userId: user.id})
+
 
       } catch (error) {
         res
