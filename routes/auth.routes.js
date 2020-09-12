@@ -87,7 +87,7 @@ async (req, res) => {
 
 const token = jwt.sign(
     {userId: user.id},
-    {config.get('jwtSecret')},
+    config.get('jwtSecret'),
     {expiresIn: '1h'}
 )
 //по умолчанию статус ответа 200, поэтому тут можно не указывать

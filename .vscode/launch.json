@@ -5,6 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch via NPM",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
+            "command": "concurrently  \"npm run server\" \"npm run client\" ",
+            "name": "dev",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
             "command": "npm run start",
             "name": "start",
             "request": "launch",
@@ -13,6 +32,13 @@
         {
             "command": "npm run server",
             "name": "server",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+
+        { 
+            "command": "npm run start --prefix client",
+            "name": "client",
             "request": "launch",
             "type": "node-terminal"
         }
