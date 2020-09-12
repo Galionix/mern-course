@@ -1,10 +1,12 @@
-const express = require('express') //получаем экспресс
+const  express = require( 'express') //получаем экспресс
 const config = require('config') //получаем config
 const mongoose = require('mongoose')
 
 
 
 const app = express() //результат работы экспресс, наш будущий сервер
+
+app.use('/api/auth', require('./routes/auth.routes'))
 
 const PORT = config.get('port') || 5000
 
